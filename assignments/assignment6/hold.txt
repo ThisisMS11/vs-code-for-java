@@ -1,0 +1,47 @@
+// Question 8
+package assignment6;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class BCS134_W5P8 {
+
+    static String Answer_String(String str, String substring) {
+        String holdstring = "";
+        int n = str.length() / substring.length();
+        int[] subindices = new int[n];
+
+        int count = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == substring.charAt(0)) {
+                int j;
+                for (j = 1; j < substring.length(); j++) {
+                    if (substring.charAt(j) != str.charAt(i + j)) {
+                        break;
+                    }
+                }
+                if (j == substring.length()) {
+                    subindices[count] = i;
+                    ++count;
+                }
+
+            }
+        }
+        return holdstring;
+    }
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Enter string: ");
+        String str = reader.readLine();
+
+        System.out.println();
+
+        System.out.print("Enter substring : ");
+        String substring = reader.readLine();
+
+    }
+}
